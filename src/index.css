@@ -1,3 +1,7 @@
+a, button {
+  color: #61dafb;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -8,6 +12,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: calc(10px + 2vmin);
+  text-decoration: underline;
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -15,4 +30,9 @@ code {
 
 .center {
   text-align: center;
+}
+
+.info {
+  color: gray;
+  font-size: calc(4px + 2vmin);
 }

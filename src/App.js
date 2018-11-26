@@ -25,7 +25,7 @@ class App extends Component {
       this.setState({
         hasError: true,
         isLoading: false
-      })
+      });
     };
     
     axios.get(config.urls.topstories)
@@ -53,11 +53,15 @@ class App extends Component {
   render() {
     const topStories = this.state.topStories.length === 0 ? (
       <p>No top stories</p>
-    ) : this.state.topStories.map(topStory => {
-      return (
-        <Story key={topStory.id} story={topStory} />
-      );
-    });
+    ) : (
+      <div className="App-stories">
+        {this.state.topStories.map(topStory => {
+          return (
+            <Story key={topStory.id} story={topStory} />
+          );
+        })}
+      </div>
+    );
     
     return (
       <div className="App">
@@ -68,13 +72,11 @@ class App extends Component {
               <img src={logo} className="App-logo" alt="logo" />
             </div>
           ) : (
-            <div>
-              {this.state.hasError ? (
-                <p>Error loading the top stories</p>
-              ) : (
-                <div>{topStories}</div>
-              )}
-            </div>
+            this.state.hasError ? (
+              <p>Error loading the top stories</p>
+            ) : (
+              topStories
+            )
           )}
         </header>
       </div>
