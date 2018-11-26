@@ -1,0 +1,10 @@
+.Story {
+  background-color: #181c24;
+  margin-bottom: 50px;
+  padding: 0px 20px 20px;
+}
+
+.Story-info {
+  color: gray;
+  font-size: calc(4px + 2vmin);
+}
