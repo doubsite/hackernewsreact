@@ -75,12 +75,10 @@ class Story extends Component {
         })}
       </div>
     );
-    const topCommentsLink = nbTopComments > 0 ? (
+    const viewTopComments = (
       <button onClick={this.viewTopComments}>
         View {nbTopComments} top comment{pluralize(nbTopComments)}
       </button>
-    ) : (
-      <span>No top comments</span>
     );
     
     return (
@@ -91,7 +89,11 @@ class Story extends Component {
           <p dangerouslySetInnerHTML={{__html: story.text}}></p>
         }
         {this.state.showTopCommentsLink ? (
-          topCommentsLink
+          nbTopComments > 0 ? (
+            viewTopComments
+          ) : (
+            <span>No top comments</span>
+          )
         ) : (
           this.state.isLoading ? (
             <span>Loading the top comments...</span>
